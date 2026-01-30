@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vim Trainer - Master Your Vim Skills</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/styles.css">
+</head>
+<body>
+    <div class="app">
+        <header class="header">
+            <div class="logo">
+                <span class="logo-icon">⌨</span>
+                <h1>Vim Trainer</h1>
+            </div>
+            <nav class="nav">
+                <button class="nav-btn active" data-view="lessons">Lessons</button>
+                <button class="nav-btn" data-view="sandbox">Sandbox</button>
+                <button class="nav-btn" data-view="reference">Reference</button>
+            </nav>
+        </header>
+
+        <main class="main">
+            <!-- Lessons View -->
+            <div class="view lessons-view active" id="lessons-view">
+                <aside class="sidebar">
+                    <h2>Lessons</h2>
+                    <div class="lesson-list" id="lesson-list"></div>
+                    <div class="progress-section">
+                        <h3>Progress</h3>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progress-fill"></div>
+                        </div>
+                        <span class="progress-text" id="progress-text">0% Complete</span>
+                    </div>
+                </aside>
+                <div class="lesson-content">
+                    <div class="lesson-header">
+                        <h2 id="lesson-title">Welcome to Vim Trainer</h2>
+                        <p id="lesson-description">Select a lesson to begin your journey</p>
+                    </div>
+                    <div class="editor-container">
+                        <div class="editor-toolbar">
+                            <div class="mode-indicator" id="mode-indicator">NORMAL</div>
+                            <div class="command-display" id="command-display"></div>
+                            <div class="key-hint" id="key-hint"></div>
+                        </div>
+                        <div class="editor-wrapper">
+                            <div class="line-numbers" id="line-numbers"></div>
+                            <div class="editor" id="editor" tabindex="0"></div>
+                        </div>
+                        <div class="status-bar">
+                            <span id="cursor-pos">Ln 1, Col 1</span>
+                            <span id="task-status"></span>
+                        </div>
+                    </div>
+                    <div class="task-panel">
+                        <h3>Current Task</h3>
+                        <p id="task-instruction">Click on a lesson to start practicing!</p>
+                        <div class="task-progress">
+                            <span id="task-step">Step 0/0</span>
+                            <button class="btn-hint" id="btn-hint">Show Hint</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sandbox View -->
+            <div class="view sandbox-view" id="sandbox-view">
+                <div class="sandbox-container">
+                    <div class="sandbox-header">
+                        <h2>Sandbox Mode</h2>
+                        <p>Practice freely with no restrictions</p>
+                    </div>
+                    <div class="editor-container">
+                        <div class="editor-toolbar">
+                            <div class="mode-indicator" id="sandbox-mode-indicator">NORMAL</div>
+                            <div class="command-display" id="sandbox-command-display"></div>
+                        </div>
+                        <div class="editor-wrapper">
+                            <div class="line-numbers" id="sandbox-line-numbers"></div>
+                            <div class="editor" id="sandbox-editor" tabindex="0"></div>
+                        </div>
+                        <div class="status-bar">
+                            <span id="sandbox-cursor-pos">Ln 1, Col 1</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reference View -->
+            <div class="view reference-view" id="reference-view">
+                <div class="reference-container">
+                    <h2>Vim Command Reference</h2>
+                    <div class="reference-grid" id="reference-grid"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div class="modal" id="success-modal">
+        <div class="modal-content">
+            <div class="modal-icon">🎉</div>
+            <h2>Lesson Complete!</h2>
+            <p id="modal-message">Great job! You've mastered this lesson.</p>
+            <button class="btn-primary" id="next-lesson-btn">Next Lesson</button>
+        </div>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
