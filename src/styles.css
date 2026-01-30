@@ -255,7 +255,7 @@
 
   /* Task Panel */
   .task-panel {
-    @apply mt-5 p-5 bg-secondary border border-border rounded-xl;
+    @apply mb-5 p-5 bg-secondary border border-border rounded-xl;
   }
 
   .task-panel h3 {
